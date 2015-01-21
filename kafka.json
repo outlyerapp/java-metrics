@@ -1,0 +1,491 @@
+
+{
+  "servers":[
+    {
+      "host": "SERVER",
+      "port": PORT,
+      "queries":[
+        {
+          "obj": "\"kafka.log\":type=\"LogFlushStats\",name=\"LogFlushRateAndTimeMs\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.log.LogFlushStats.LogFlush",
+          "outputWriters": [
+            {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"BrokerTopicMetrics\",name=\"AllTopicsBytesInPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.BrokerTopicMetrics.AllTopicsBytesIn",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"BrokerTopicMetrics\",name=\"AllTopicsFailedFetchRequestsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.BrokerTopicMetrics.AllTopicsFailedFetchRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"BrokerTopicMetrics\",name=\"AllTopicsFailedProduceRequestsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.BrokerTopicMetrics.AllTopicsFailedProduceRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"BrokerTopicMetrics\",name=\"AllTopicsMessagesInPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.BrokerTopicMetrics.AllTopicsMessagesIn",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"BrokerTopicMetrics\",name=\"AllTopicsBytesOutPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.BrokerTopicMetrics.AllTopicsBytesOut",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaManager\",name=\"UnderReplicatedPartitions\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ReplicaManager.UnderReplicatedPartitions",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaManager\",name=\"PartitionCount\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ReplicaManager.PartitionCount",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaManager\",name=\"LeaderCount\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ReplicaManager.LeaderCount",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaManager\",name=\"ISRShrinksPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.ReplicaManager.ISRShrinks",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaManager\",name=\"IsrExpandsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.server.ReplicaManager.ISRExpands",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaFetcherManager\",name=\"Replica-MaxLag\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ReplicaFetcherManager.MaxLag",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ReplicaFetcherManager\",name=\"Replica-MinFetchRate\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ReplicaFetcherManager.MinFetchRate",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ProducerRequestPurgatory\",name=\"NumDelayedRequests\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ProducerRequestPurgatory.NumDelayedRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"ProducerRequestPurgatory\",name=\"PurgatorySize\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.ProducerRequestPurgatory.PurgatorySize",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"FetchRequestPurgatory\",name=\"NumDelayedRequests\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.FetchRequestPurgatory.NumDelayedRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.server\":type=\"FetchRequestPurgatory\",name=\"PurgatorySize\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.server.FetchRequestPurgatory.PurgatorySize",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.network\":type=\"RequestMetrics\",name=\"Produce-RequestsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.network.RequestMetrics.ProduceRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.network\":type=\"RequestMetrics\",name=\"Fetch-Follower-RequestsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.network.RequestMetrics.FetchFollowerRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.network\":type=\"RequestMetrics\",name=\"Fetch-Consumer-RequestsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.network.RequestMetrics.FetchConsumerRequests",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.controller\":type=\"KafkaController\",name=\"ActiveControllerCount\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.controller.KafkaController.ActiveControllerCount",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.controller\":type=\"KafkaController\",name=\"OfflinePartitionsCount\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.controller.KafkaController.OfflinePartitionsCount",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.controller\":type=\"ControllerStats\",name=\"LeaderElectionRateAndTimeMs\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.controller.ControllerStats.LeaderElection",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.controller\":type=\"ControllerStats\",name=\"UncleanLeaderElectionsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.controller.ControllerStats.UncleanLeaderElection",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.consumer\":type=\"ConsumerFetcherManager\",name=\"*-MaxLag\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.consumer.ConsumerFetcherManager.MaxLag",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.consumer\":type=\"ConsumerFetcherManager\",name=\"*-MinFetchRate\"",
+          "attr": [ "Value" ],
+          "resultAlias": "kafka.consumer.ConsumerFetcherManager.MinFetchRate",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.producer\":type=\"ProducerRequestsMetrics\",name=\"-AllBrokersProducerRequestSize\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.producer.ProducerRequestsMetrics.AllBrokersProducerRequestSize",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.producer\":type=\"ProducerRequestsMetrics\",name=\"-AllBrokersProducerRequestRateAndTimeMs\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.producer.ProducerRequestsMetrics.AllBrokersProducerRequestRate",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.producer\":type=\"ProducerStats\",name=\"-FailedSendsPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.producer.ProducerStats.FailedSendsPerSec",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.producer\":type=\"ProducerTopicMetrics\",name=\"-AllTopicsBytesPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.producer.ProducerTopicMetrics.AllTopicsBytes",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.producer\":type=\"ProducerTopicMetrics\",name=\"-AllTopicsDroppedMessagesPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.producer.ProducerTopicMetrics.AllTopicsDroppedMessages",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        },
+        {
+          "obj": "\"kafka.producer\":type=\"ProducerTopicMetrics\",name=\"-AllTopicsMessagesPerSec\"",
+          "attr": [ "Count" ],
+          "resultAlias": "kafka.producer.ProducerTopicMetrics.AllTopicsMessages",
+          "outputWriters": [
+                        {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+              "settings": {
+                "port": 2003,
+                "host": "graphite.dataloop.io",
+                "rootPrefix": "APIKEY_FINGERPRINT"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
