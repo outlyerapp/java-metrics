@@ -18,3 +18,23 @@ You can find your API Key in /etc/dataloop/agent.conf
 
 You can find your agent fingerprint in /etc/dataloop/agent.finger
 
+The SERVER and PORT strings refer to the JMX connection details. If you are running jmxtrans on the same machine as the service you wish to monitor then SERVER will be 'localhost' and the port will be whatever port JMX runs on.
+
+# Enabling JMX
+
+Each service will require slightly different instructions. Here is a good link for Tomcat7 : http://tomcat.apache.org/tomcat-7.0-doc/monitoring.html
+(the 'enabling jmxremote' section).
+
+With the latest Kafka you can start the service with the JMX_PORT environment variable set.
+
+env JMX_PORT=8110 bin/kafka-server-start.sh config/server.properties
+The SERVER and PORT strings refer to the JMX connection details. If you are running jmxtrans on the same machine as the service you wish to monitor then SERVER will be 'localhost' and the port will be whatever port JMX runs on.
+
+# Enabling JMX
+
+Each service will require slightly different instructions. Here is a good link for Tomcat7 : http://tomcat.apache.org/tomcat-7.0-doc/monitoring.html
+(the 'enabling jmxremote' section).
+
+With Kafka it was as simple as starting with the JMX_PORT environment variable set.
+
+    env JMX_PORT=8110 bin/kafka-server-start.sh config/server.properties
