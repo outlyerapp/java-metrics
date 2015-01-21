@@ -18,7 +18,7 @@ You can find your API Key in /etc/dataloop/agent.conf
 
 You can find your agent fingerprint in /etc/dataloop/agent.finger
 
-The SERVER and PORT strings refer to the JMX connection details. If you are running jmxtrans on the same machine as the service you wish to monitor then SERVER will be 'localhost' and the port will be whatever port JMX runs on.
+The SERVER and PORT strings refer to the JMX connection details. If you are running jmxtrans on the same machine as the service you wish to monitor then SERVER will be 'localhost' and PORT will be whatever port JMX runs on.
 
 # Enabling JMX
 
