@@ -1,0 +1,40 @@
+
+{
+    "servers": [
+        {
+            "host": "SERVER",
+            "port": PORT,
+            "queries": [
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+                            "settings": {
+                                "port": 2003,
+                                "host": "graphite.dataloop.io",
+                                "rootPrefix": "APIKEY_FINGERPRINT"
+                            }
+                        }
+                    ],
+                    "obj": "hadoop:service=TaskTracker,name=RpcActivityForPort*",
+                    "resultAlias": "TaskTrackerRpcActivity",
+                    "attr": [
+                        "NumOpenConnections",
+                        "ReceivedBytes",
+                        "SentBytes",
+                        "RpcProcessingTimeAvgTime",
+                        "RpcProcessingTimeMinTime",
+                        "RpcProcessingTimeMaxTime",
+                        "RpcProcessingTimeNumOps",
+                        "RpcQueueTimeAvgTime",
+                        "RpcQueueTimeMinTime",
+                        "RpcQueueTimeMaxTime",
+                        "RpcQueueTimeNumOps",
+                        "callQueueLen"
+                    ]
+                }
+            ],
+            "numQueryThreads": 2
+        }
+    ]
+}
