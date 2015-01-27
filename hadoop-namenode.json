@@ -1,22 +1,22 @@
-
 {
     "servers": [
         {
-            "host": "SERVER",
-            "port": PORT,
+            "port": 8006,
+            "host": "localhost",
+            "alias": "namenode",
             "queries": [
                 {
                     "outputWriters": [
                         {
                             "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
                             "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
                                 "port": 2003,
-                                "host": "graphite.dataloop.io",
-                                "rootPrefix": "APIKEY_FINGERPRINT"
+                                "host": "graphite.dataloop.io"
                             }
                         }
                     ],
-                    "obj": "hadoop:service=NameNode,name=FSNamesystemState",
+                    "obj": "Hadoop:service=NameNode,name=FSNamesystemState",
                     "resultAlias": "NameNodeFSNamesystemState",
                     "attr": [
                           "CapacityTotal",
@@ -35,41 +35,34 @@
                         {
                             "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
                             "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
                                 "port": 2003,
-                                "host": "graphite.dataloop.io",
-                                "rootPrefix": "APIKEY_FINGERPRINT"
+                                "host": "graphite.dataloop.io"
                             }
                         }
                     ],
-                    "obj": "hadoop:service=NameNode,name=NameNodeActivity",
+                    "obj": "Hadoop:service=NameNode,name=NameNode",
                     "resultAlias": "NameNodeActivity",
                     "attr": [
                           "AddBlockOps",
                           "fsImageLoadTime",
                           "FilesRenamed",
-                          "SyncsNumOps",
-                          "SyncsAvgTime",
-                          "SyncsMinTime",
-                          "SyncsMaxTime",
+                          "Syncs_num_ops",
+                          "Syncs_avg_time",
                           "JournalTransactionsBatchedInSync",
                           "FileInfoOps",
                           "CreateFileOps",
                           "GetListingOps",
-                          "TransactionsNumOps",
-                          "TransactionsAvgTime",
-                          "TransactionsMinTime",
-                          "TransactionsMaxTime",
+                          "Transactions_num_ops",
+                          "Transactions_avg_time",
                           "GetBlockLocations",
-                          "BlocksCorrupted",
                           "FilesInGetListingOps",
                           "SafemodeTime",
                           "FilesCreated",
                           "FilesAppended",
                           "DeleteFileOps",
-                          "blockReportNumOps",
-                          "blockReportAvgTime",
-                          "blockReportMinTime",
-                          "blockReportMaxTime"
+                          "blockReport_num_ops",
+                          "blockReport_avg_time"
                     ]
                 },
                 {
@@ -77,13 +70,13 @@
                         {
                             "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
                             "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
                                 "port": 2003,
-                                "host": "graphite.dataloop.io",
-                                "rootPrefix": "APIKEY_FINGERPRINT"
+                                "host": "graphite.dataloop.io"
                             }
                         }
                     ],
-                    "obj": "hadoop:service=NameNode,name=NameNodeInfo",
+                    "obj": "Hadoop:service=NameNode,name=NameNodeInfo",
                     "resultAlias": "NameNodeInfo",
                     "attr": [
                           "Threads",
@@ -102,14 +95,13 @@
                         {
                             "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
                             "settings": {
-
+                                "rootPrefix": "APIKEY_FINGERPRINT",
                                 "port": 2003,
-                                "host": "graphite.dataloop.io",
-                                "rootPrefix": "APIKEY_FINGERPRINT"
+                                "host": "graphite.dataloop.io"
                             }
                         }
                     ],
-                    "obj": "hadoop:service=NameNode,name=RpcActivityForPort8020",
+                    "obj": "Hadoop:service=NameNode,name=RpcActivityForPort*",
                     "resultAlias": "NameNodeRpcActivity",
                     "attr": [
                           "rpcAuthorizationSuccesses",
@@ -120,15 +112,74 @@
                           "callQueueLen",
                           "rpcAuthenticationSuccesses",
                           "rpcAuthenticationFailures",
-                          "RpcQueueTimeNumOps",
-                          "RpcQueueTimeAvgTime",
-                          "RpcQueueTimeMinTime",
-                          "RpcQueueTimeMaxTime",
-                          "RpcProcessingTimeNumOps",
-                          "RpcProcessingTimeAvgTime",
-                          "RpcProcessingTimeMinTime",
-                          "RpcProcessingTimeMaxTime"
+                          "RpcQueueTime_num_ops",
+                          "RpcQueueTime_avg_time",
+                          "RpcProcessingTime_num_ops",
+                          "RpcProcessingTime_avg_time"
                     ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+                            "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
+                                "port": 2003,
+                                "host": "graphite.dataloop.io"
+                            }
+                        }
+                    ],
+                    "obj": "java.lang:type=OperatingSystem",
+                    "resultAlias": "Process",
+                    "attr": [
+                      "OpenFileDescriptorCount",
+                      "ProcessCpuLoad"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+                            "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
+                                "port": 2003,
+                                "host": "graphite.dataloop.io"
+                            }
+                        }
+                    ],
+                    "obj": "java.lang:type=ClassLoading",
+                    "resultAlias": "Classloading",
+                    "attr": [ "LoadedClassCount"]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+                            "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
+                                "port": 2003,
+                                "host": "graphite.dataloop.io"
+                            }
+                        }
+                    ],
+                    "obj" : "java.lang:type=Memory",
+                    "attr" : [ "HeapMemoryUsage", "NonHeapMemoryUsage" ],
+                    "resultAlias": "Memory"
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+                            "settings": {
+                                "rootPrefix": "APIKEY_FINGERPRINT",
+                                "port": 2003,
+                                "host": "graphite.dataloop.io"
+                            }
+                        }
+                    ],
+                    "obj" : "java.lang:type=Threading",
+                    "attr" : [ "ThreadCount" ],
+                    "resultAlias": "Threading"
                 }
             ],
             "numQueryThreads": 2
