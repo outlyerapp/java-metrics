@@ -101,7 +101,7 @@
                             }
                         }
                     ],
-                    "obj": "Hadoop:service=NameNode,name=RpcActivityForPort*",
+                    "obj": "Hadoop:service=NameNode,name=RpcActivityForPort",
                     "resultAlias": "NameNodeRpcActivity",
                     "attr": [
                           "rpcAuthorizationSuccesses",
