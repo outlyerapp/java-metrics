@@ -1,6 +1,6 @@
 # java-metrics
 
-1. Install the latest jmxtrans from https://github.com/jmxtrans/jmxtrans/downloads
+1. Install the latest RPM from http://central.maven.org/maven2/org/jmxtrans/jmxtrans/
 
 1. wget the appropriate .json files from this repo into /var/lib/jmxtrans
 
